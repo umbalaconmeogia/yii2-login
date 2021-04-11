@@ -66,7 +66,7 @@ class SystemUserController extends Controller
      *
      * Example
      *   ```shell
-     *     php yii system-user/create --password=password --email=thanhtt@hybrid-technologies.co.jp
+     *     php yii systemuser/system-user/create --password=mypassword --email=thanhtt@example.com
      *   ```
      */
     public function actionCreate()
