@@ -1,11 +1,11 @@
 {
-    "name": "umbalaconmeogia/yii2-user",
+    "name": "umbalaconmeogia/yii2-systemuser",
     "description": "User login and user management",
     "type": "yii2-extension",
     "keywords": [
         "yii2",
         "extension",
-		"user",
+		"systemuser",
         "login",
         "manager"
     ],
@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "umbalaconmeogia\\user\\": "src/"
+            "umbalaconmeogia\\systemuser\\": "src/"
         }
     }
 }

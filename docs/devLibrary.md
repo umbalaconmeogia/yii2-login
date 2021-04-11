@@ -72,3 +72,5 @@ Install the lib to *vendor* directory of the test app (symbolic link is created)
 ```shell
 composer require umbalaconmeogia/yii2-user
 ```
+
+## Config module in the test app common\config\main.php
