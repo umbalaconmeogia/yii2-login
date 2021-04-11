@@ -15,6 +15,23 @@ class LoginForm extends Model
 
     private $_user;
 
+    public function behaviors()
+    {
+      $behaviors = parent::behaviors();
+
+      $behaviors[] = [
+          'class' => '\giannisdag\yii2CheckLoginAttempts\behaviors\LoginAttemptBehavior',
+
+          // Amount of attempts in the given time period
+          'attempts' => 3,
+
+          // the attribute used as the key in the database
+          // and add errors to
+          'usernameAttribute' => 'username',
+      ];
+
+      return $behaviors;
+    }
 
     /**
      * {@inheritdoc}
@@ -58,7 +75,7 @@ class LoginForm extends Model
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
-        
+
         return false;
     }
 
