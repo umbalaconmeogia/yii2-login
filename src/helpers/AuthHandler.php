@@ -96,4 +96,21 @@ class AuthHandler
     {
         Yii::$app->getSession()->setFlash('error', $message);
     }
+
+    /**
+     * Callback when "auth" success.
+     *
+     * Usage: Add the code below into SiteController#actions()
+     * ```php
+     * 'auth' => [
+     *    'class' => 'yii\authclient\AuthAction',
+     *     'successCallback' => ['umbalaconmeogia\systemuser\helpers\AuthHandler', 'onAuthSuccess'],
+     * ],
+     * ```
+     * @param yii\authclient\ClientInterface $client
+     */
+    public static function onAuthSuccess(ClientInterface $client)
+    {
+        (new AuthHandler($client))->handle();
+    }
 }
