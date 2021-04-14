@@ -2,7 +2,6 @@
 namespace umbalaconmeogia\systemuser\models;
 
 use Yii;
-use SystemUser as User;
 
 /**
  * This is the model class for table "auth".
@@ -34,7 +33,7 @@ class Auth extends \yii\db\ActiveRecord
             [['user_id'], 'default', 'value' => null],
             [['user_id'], 'integer'],
             [['source', 'source_id'], 'string', 'max' => 255],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => SystemUser::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -56,6 +55,6 @@ class Auth extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(SystemUser::className(), ['id' => 'user_id']);
     }
 }
